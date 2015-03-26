@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IDnowSampleProject</string>
+    <string name="start_video_ident">Video-Identifizierung starten</string>
+    <string name="start_photo_ident">Photo-Identifizierung starten</string>
+
+</resources>
