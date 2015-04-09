@@ -81,7 +81,7 @@
             android:value="1157567b13dd1b98570a0fa32841bc765920e6c5" />
 
         <activity
-            android:name="de.idnow.sdk.Activities_BaseActivity"
+            android:name="de.idnow.sdk.BaseActivities_BaseActivity"
             android:label="@string/title_activity_base" >
         </activity>
 
@@ -124,12 +124,7 @@
             android:label="@string/title_activity_legal_notices"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="de.idnow.sdk.Activities_ZeroActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+       
         <activity
             android:name="de.idnow.sdk.Activities_EntryActivity"
             android:label="@string/app_name"
