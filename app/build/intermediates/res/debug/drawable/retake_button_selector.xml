@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@color/light_gray" android:state_pressed="true"/>
-    <item android:drawable="@color/idnow_background_dark_grey"/>
-
-</selector><!-- From: file:/D:/workspace/IDnowSampleApp1/sdk/src/main/res/drawable/retake_button_selector.xml --><!-- From: file:/D:/workspace/IDnowSampleApp1/app/build/intermediates/exploded-aar/IDnowSampleApp1/sdk/unspecified/res/drawable/retake_button_selector.xml -->
