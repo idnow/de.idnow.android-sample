@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="idnow-android-sdk.0.5.2-beta">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/libs/idnow-android-sdk.0.5.2-beta.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
