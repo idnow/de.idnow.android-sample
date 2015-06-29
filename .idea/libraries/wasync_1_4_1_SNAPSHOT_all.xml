@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="wasync-1.4.1-SNAPSHOT-all">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/sdk/libs/wasync-1.4.1-SNAPSHOT-all.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
