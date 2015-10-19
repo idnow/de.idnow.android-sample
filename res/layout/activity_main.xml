@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-       	android:background="@drawable/button_selector"
         android:text="@string/start_video_ident"
         android:textColor="@color/white" />
 
@@ -33,7 +32,6 @@
         android:layout_below="@id/buttonStartVideoIdent"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button_selector"
         android:text="@string/start_photo_ident"
         android:textColor="@color/white" />
 
