@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import de.idnow.R;
 import de.idnow.sdk.IDnowSDK;
 
 public class MainActivity extends Activity

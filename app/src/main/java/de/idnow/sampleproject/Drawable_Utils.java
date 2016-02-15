@@ -5,6 +5,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 
+import de.idnow.R;
+
 /**
  * Created by Mathias Grasy on 14.10.2015.
  */
