@@ -8,6 +8,8 @@ You can choose between Video-Ident and Photo-Ident.
 
 You need:
 - This project
-- The IDnow Android SDK in Eclipse
+- Android Studio
 
-Go to Properties -> Android and add the IDnow Android SDK as a library
+## Eclipse Sample
+
+You can find the old Eclipse example at https://github.com/idnow/de.idnow.android-sample/tree/eclipse
