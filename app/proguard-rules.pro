@@ -55,11 +55,14 @@ public void set*(...);
 -dontwarn com.ning.http.**
 -dontwarn org.apache.http.**
 -dontwarn com.fasterxml.jackson.databind.**
--dontwarn org.atmosphere.wasync.**
 -dontwarn retrofit.**
 -dontwarn com.squareup.okhttp.**
 -dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry
 -dontwarn org.slf4j.**
+-dontwarn fm.**
+-dontwarn org.bouncycastle.**
+-dontwarn okio.**
+-dontwarn okhttp3.**
 
 -keep class retrofit.** { *; }
 -keepclasseswithmembers class * {
@@ -80,6 +83,8 @@ public void set*(...);
 -keep class org.webrtc.** { *; }
 -keep class com.fasterxml.jackson.** { *; }
 -keep class com.ning.http.** { *; }
+-keep class fm.** { *; }
+-keep class org.bouncycastle.** { *; }
 
 
 -keepattributes *Annotation*
