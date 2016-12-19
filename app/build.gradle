@@ -34,7 +34,7 @@ android {
 dependencies {
     compile 'com.android.support:multidex:1.0.1'
 
-    compile 'de.idnow.sdk:idnow-android-2.8.2@aar'
+    compile 'de.idnow.sdk:idnow-android-2.9.0@aar'
     compile 'com.google.code.gson:gson:2.4'
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
