@@ -35,7 +35,7 @@ public class MainActivity extends Activity
 				try
 				{
 					IDnowSDK.getInstance().initialize( MainActivity.this, "ihrebank" );
-					IDnowSDK.setTransactionToken( "DEV-SDJKV", context );
+					IDnowSDK.setTransactionToken( "TST-QJFQM", context );
 					IDnowSDK.setShowVideoOverviewCheck( true, context );
 					IDnowSDK.setShowErrorSuccessScreen( true, context );
 
