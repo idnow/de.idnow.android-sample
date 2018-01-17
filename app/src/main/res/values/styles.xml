@@ -4,7 +4,7 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="AppBaseTheme" parent="@style/IdnowSdkTheme">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -15,6 +15,10 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <!-- Enable the next line to use a custom font resource, requires the android support lib -->
+        <!-- for details see https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html -->
+        <!--<item name="android:fontFamily">@font/roboto_thinitalic</item>-->
     </style>
 
 </resources>
