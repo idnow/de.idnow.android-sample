@@ -15,7 +15,8 @@ android {
         minSdkVersion 18
         targetSdkVersion 27
 
-//        multiDexEnabled = true
+    // enable for multidex support >= API level 21
+    //multiDexEnabled = true
     }
 
     buildTypes {
@@ -31,12 +32,17 @@ android {
 }
 
 dependencies {
-//    compile 'com.android.support:multidex:1.0.1'
+    // enable for multidex support < API level 21
+    //compile 'com.android.support:multidex:1.0.1'
+
+    // enable e.g. for custom xml fonts in style.xml
+    //compile "com.android.support:support-core-utils:27.0.2"
+
     compile 'de.idnow.sdk:idnow-android-3.4.4@aar'
+    // transitive dependencies of the idnow SDK
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
-    compile "com.android.support:support-core-utils:27.0.2"
 }
 
 android {
