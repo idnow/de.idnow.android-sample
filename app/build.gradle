@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "de.idnow.sampleproject"
         minSdkVersion 18
-        targetSdkVersion 27
+        targetSdkVersion 25
 
     // enable for multidex support >= API level 21
     //multiDexEnabled = true
