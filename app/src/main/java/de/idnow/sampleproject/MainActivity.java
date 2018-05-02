@@ -35,7 +35,7 @@ public class MainActivity extends Activity
 				try
 				{
 					IDnowSDK.getInstance().initialize( MainActivity.this, "" );
-					IDnowSDK.setTransactionToken( "DEV-BWGHH", context );
+					IDnowSDK.setTransactionToken( "TST-ASLXY", context );
 					IDnowSDK.setShowVideoOverviewCheck( true, context );
 					IDnowSDK.setShowErrorSuccessScreen( true, context );
 
