@@ -35,9 +35,11 @@ public class MainActivity extends Activity
 				try
 				{
 					IDnowSDK.getInstance().initialize( MainActivity.this, "" );
-					IDnowSDK.setTransactionToken( "TST-ASLXY", context );
 					IDnowSDK.setShowVideoOverviewCheck( true, context );
 					IDnowSDK.setShowErrorSuccessScreen( true, context );
+
+					// need to be changed to your own token as described in API documentation, see https://www.idnow.de/entwicklung/dokumentation-api/
+					IDnowSDK.setTransactionToken( "TST-XXXXX", context );
 
 					IDnowSDK.getInstance().start( IDnowSDK.getTransactionToken( context ) );
 				}
