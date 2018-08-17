@@ -12,110 +12,100 @@ import android.widget.Toast;
 import de.idnow.R;
 import de.idnow.sdk.IDnowSDK;
 
-public class MainActivity extends Activity
-{
-	private Context context;
+public class MainActivity extends Activity {
 
-	@Override
-	protected void onCreate( Bundle savedInstanceState )
-	{
-		super.onCreate( savedInstanceState );
-		setContentView( R.layout.activity_main );
+    private Context context;
 
-		context = this;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		Button startVideoIdentButton = ( Button ) findViewById( R.id.buttonStartVideoIdent );
-		Drawable_Utils.setProceedButtonBackgroundSelector( startVideoIdentButton );
-		startVideoIdentButton.setOnClickListener( new OnClickListener()
-		{
+        setContentView(R.layout.activity_main);
 
-			@Override
-			public void onClick( View v )
-			{
-				try
-				{
-					IDnowSDK.getInstance().initialize( MainActivity.this, "" );
-					IDnowSDK.setShowVideoOverviewCheck( true, context );
-					IDnowSDK.setShowErrorSuccessScreen( true, context );
+        context = this;
 
-					// need to be changed to your own token as described in API documentation, see https://www.idnow.de/entwicklung/dokumentation-api/
-					IDnowSDK.setTransactionToken( "TST-XXXXX", context );
+        Button startVideoIdentButton = findViewById(R.id.buttonStartVideoIdent);
+        DrawableUtils.setProceedButtonBackgroundSelector(startVideoIdentButton);
+        startVideoIdentButton.setOnClickListener(new OnClickListener() {
 
-					IDnowSDK.getInstance().start( IDnowSDK.getTransactionToken( context ) );
-				}
-				catch ( Exception e )
-				{
-					e.printStackTrace();
-				}
-			}
-		} );
+            @Override
+            public void onClick(View v) {
+                try {
+                    IDnowSDK.getInstance().initialize(MainActivity.this, "");
+                    IDnowSDK.setShowVideoOverviewCheck(true, context);
+                    IDnowSDK.setShowErrorSuccessScreen(true, context);
 
-		Button startPhotoIdentButton = ( Button ) findViewById( R.id.buttonStartPhotoIdent );
-		Drawable_Utils.setProceedButtonBackgroundSelector( startPhotoIdentButton );
-		startPhotoIdentButton.setOnClickListener( new OnClickListener()
-		{
+                    // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
+                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
 
-			@Override
-			public void onClick( View v )
-			{
-				try
-				{
-					IDnowSDK.getInstance().initialize( MainActivity.this, "idnow" );
-					IDnowSDK.setTransactionToken( "DEV-LDFRG", context );
-					IDnowSDK.setShowVideoOverviewCheck( true, context );
-					IDnowSDK.setShowErrorSuccessScreen( true, context );
+                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
+                } catch (Exception e) {
+                    // exception handling required
+                    e.printStackTrace();
+                }
+            }
+        });
 
-					IDnowSDK.getInstance().start( IDnowSDK.getTransactionToken( context ) );
-				}
-				catch ( Exception e )
-				{
-					e.printStackTrace();
-				}
-			}
-		} );
-	}
+        Button startPhotoIdentButton = findViewById(R.id.buttonStartPhotoIdent);
+        DrawableUtils.setProceedButtonBackgroundSelector(startPhotoIdentButton);
+        startPhotoIdentButton.setOnClickListener(new OnClickListener() {
 
-	/**
-	 * Callback from the SDK
-	 */
-	@Override
-	protected void onActivityResult( int requestCode, int resultCode, Intent data )
-	{
-		if ( requestCode == IDnowSDK.REQUEST_ID_NOW_SDK )
-		{
-			if ( resultCode == IDnowSDK.RESULT_CODE_SUCCESS )
-			{
-				StringBuilder toastText = new StringBuilder( "Identification performed. " );
-				if ( null != data )
-				{
-					toastText.append( data.getStringExtra( IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN ) );
-				}
-				Toast.makeText( this, toastText.toString(), Toast.LENGTH_LONG ).show();
-			}
-			else if ( resultCode == IDnowSDK.RESULT_CODE_CANCEL )
-			{
-				StringBuilder toastText = new StringBuilder( "Identification canceled. " );
-				if ( null != data )
-				{
-					toastText.append( data.getStringExtra( IDnowSDK.RESULT_DATA_ERROR ) );
-				}
-				Toast.makeText( this, toastText.toString(), Toast.LENGTH_LONG ).show();
-			}
-			else if ( resultCode == IDnowSDK.RESULT_CODE_FAILED )
-			{
-				StringBuilder toastText = new StringBuilder( "Identification failed. " );
-				if ( null != data )
-				{
-					toastText.append( data.getStringExtra( IDnowSDK.RESULT_DATA_ERROR ) );
-				}
-				Toast.makeText( this, toastText.toString(), Toast.LENGTH_LONG ).show();
-			}
-			else
-			{
-				StringBuilder toastText = new StringBuilder( "Result Code: " );
-				toastText.append( resultCode );
-				Toast.makeText( this, toastText.toString(), Toast.LENGTH_LONG ).show();
-			}
-		}
-	}
+            @Override
+            public void onClick(View v) {
+                try {
+                    IDnowSDK.getInstance().initialize(MainActivity.this, "idnow");
+                    IDnowSDK.setShowVideoOverviewCheck(true, context);
+                    IDnowSDK.setShowErrorSuccessScreen(true, context);
+
+                    // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
+                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
+
+                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
+                } catch (Exception e) {
+                    // exception handling required
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Callback from the SDK
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IDnowSDK.REQUEST_ID_NOW_SDK) {
+            StringBuilder toastText;
+
+            switch (resultCode) {
+
+                case IDnowSDK.RESULT_CODE_SUCCESS:
+                    toastText = new StringBuilder("Identification performed. ");
+                    if (null != data) {
+                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN));
+                    }
+                    break;
+
+                case IDnowSDK.RESULT_CODE_CANCEL:
+                    toastText = new StringBuilder("Identification canceled. ");
+                    if (null != data) {
+                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR));
+                    }
+                    break;
+
+                case IDnowSDK.RESULT_CODE_FAILED:
+                    toastText = new StringBuilder("Identification failed. ");
+                    if (null != data) {
+                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR));
+                    }
+                    break;
+
+                default:
+                    toastText = new StringBuilder("Result Code: ");
+                    toastText.append(resultCode);
+            }
+
+            Toast.makeText(this, toastText.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
 }
