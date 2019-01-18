@@ -38,7 +38,7 @@ dependencies {
     // enable e.g. for custom xml fonts in style.xml
     //compile "com.android.support:support-core-utils:27.0.2"
 
-    compile 'de.idnow.sdk:idnow-android-3.16.1@aar'
+    compile 'de.idnow.sdk:idnow-android-3.16.2@aar'
     // transitive dependencies of the idnow SDK
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
