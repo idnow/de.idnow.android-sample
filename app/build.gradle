@@ -8,12 +8,12 @@ repositories {
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.0"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "de.idnow.sampleproject"
-        minSdkVersion 18
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 27
 
     // enable for multidex support >= API level 21
     //multiDexEnabled = true
@@ -38,11 +38,11 @@ dependencies {
     // enable e.g. for custom xml fonts in style.xml
     //compile "com.android.support:support-core-utils:27.0.2"
 
-    compile 'de.idnow.sdk:idnow-android-3.16.2@aar'
+    compile 'de.idnow.sdk:idnow-android-3.17.0@aar'
     // transitive dependencies of the idnow SDK
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.squareup.okhttp3:okhttp:3.12.1'
     compile 'com.googlecode.libphonenumber:libphonenumber:8.4.2'
 }
 
