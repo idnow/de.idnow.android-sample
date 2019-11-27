@@ -5,7 +5,7 @@ repositories {
         dirs 'libs' //this way we can find the .aar file in libs folder
     }
     maven {
-        url "https://raw.githubusercontent.com/idnow/de.idnow.android/support/sdk3.22.1"
+        url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
     }
 }
 
@@ -35,11 +35,6 @@ android {
 }
 
 dependencies {
-    // enable for multidex support < API level 21
-    //compile 'com.android.support:multidex:1.0.1'
-
-    // enable e.g. for custom xml fonts in style.xml
-    //compile "com.android.support:support-core-utils:27.0.2"
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'de.idnow.sdk:idnow-android-sdk:3.22.1'
 }
