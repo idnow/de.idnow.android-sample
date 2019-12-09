@@ -1,32 +1,64 @@
 apply plugin: 'com.android.application'
+apply plugin: "com.jaredsburrows.license"
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath "com.jaredsburrows:gradle-license-plugin:0.8.41"
+    }
+}
 
 repositories {
+    jcenter()
+    maven {
+        url "https://raw.githubusercontent.com/idnow/de.idnow.android/sdk_4_0_0"
+    }
     flatDir {
         dirs 'libs' //this way we can find the .aar file in libs folder
-    }
-    maven {
-        url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
     }
 }
 
 android {
+    signingConfigs {
+        config {
+        }
+    }
     compileSdkVersion 28
-    buildToolsVersion "27.0.3"
-
+    buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "de.idnow.sampleproject"
+        applicationId "de.idnow"
         minSdkVersion 21
         targetSdkVersion 28
-
-    // enable for multidex support >= API level 21
-    //multiDexEnabled = true
+        versionCode 150
+        versionName "3.23.0"
+        ndk.abiFilters 'armeabi-v7a','arm64-v8a'
+        multiDexEnabled = true
     }
-
     buildTypes {
         release {
+            // don't use proguard, because there will be problems with the idnow SDK otherwise
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "IN_DEBUG_MODE", "false"
         }
+        debug {
+            debuggable true
+            // don't use proguard
+            minifyEnabled false
+            buildConfigField "boolean", "IN_DEBUG_MODE", "true"
+        }
+    }
+}
+
+android {
+    lintOptions {
+        abortOnError false
     }
 
     dexOptions {
@@ -35,8 +67,9 @@ android {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-android:1.7.12'
-    compile 'de.idnow.sdk:idnow-android-sdk:3.22.1'
+    implementation 'org.slf4j:slf4j-android:1.7.12'
+//    compile 'de.idnow.sdk:idnow-android-sdk:3.22.1'
+    implementation 'de.idnow.sdk:idnow-android-sdk:4.0.0'
 }
 
 android {
@@ -53,3 +86,5 @@ android {
         exclude 'META-INF/LGPL2.1'
     }
 }
+
+//apply plugin: 'com.google.gms.google-services'
