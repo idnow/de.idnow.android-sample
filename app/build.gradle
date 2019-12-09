@@ -17,7 +17,7 @@ buildscript {
 repositories {
     jcenter()
     maven {
-        url "https://raw.githubusercontent.com/idnow/de.idnow.android/sdk_4_0_0"
+        url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
     }
     flatDir {
         dirs 'libs' //this way we can find the .aar file in libs folder
