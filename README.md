@@ -12,7 +12,7 @@ You need:
 
 ## How to build/run Sample App 
 
-[![Watch the video](https://github.com/idnow/de.idnow.android/blob/souheib93-patch-1/docs/screenshot_video3.png)](https://youtu.be/12SaLgqArkY)
+[![Watch the video](https://github.com/idnow/de.idnow.android/blob/souheib93-patch-1/docs/screenshot_video3.png)](https://youtu.be/19Im-DODSaw)
 
 
 ## Home Screen - Screenshot
