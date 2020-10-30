@@ -17,6 +17,7 @@
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="false"
         android:label="IDnow Sample App"
+        android:icon="@drawable/idnow_avatar"
         tools:replace="android:label"
         android:largeHeap="true">
         <activity
