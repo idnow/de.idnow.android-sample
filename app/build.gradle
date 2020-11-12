@@ -29,8 +29,8 @@ android {
         applicationId "de.idnow"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 161
-        versionName "4.4.0"
+        versionCode 162
+        versionName "4.4.1"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
         multiDexEnabled = true
     }
@@ -92,7 +92,7 @@ allprojects {
 
 dependencies {
     implementation 'org.slf4j:slf4j-android:1.7.12'
-    compile 'de.idnow.sdk:idnow-android-sdk:4.4.0'
+    compile 'de.idnow.sdk:idnow-android-sdk:4.4.1'
     compile 'de.idnow.android.eid:idnow-android-eid-sdk:1.2.0'
     compile 'com.android.support:multidex:1.0.3'
 }
