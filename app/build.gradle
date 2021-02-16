@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "com.jaredsburrows:gradle-license-plugin:0.8.41"
     }
 }
@@ -23,12 +23,12 @@ android {
         config {
         }
     }
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "de.idnow"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 163
         versionName "5.0.1"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
@@ -91,7 +91,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'org.slf4j:slf4j-android:1.7.12'
+    //implementation 'org.slf4j:slf4j-android:1.7.12'
     compile 'de.idnow.sdk:idnow-android-sdk:5.0.1'
     compile 'de.idnow.android.eid:idnow-android-eid-sdk:1.5.0'
     compile 'com.android.support:multidex:1.0.3'
