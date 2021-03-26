@@ -92,8 +92,8 @@ allprojects {
 
 dependencies {
     //implementation 'org.slf4j:slf4j-android:1.7.12'
-    compile 'de.idnow.sdk:idnow-android-sdk:5.0.2'
-    compile 'de.idnow.android.eid:idnow-android-eid-sdk:1.5.0'
+    compile 'de.idnow.sdk:idnow-android-sdk:5.0.3'
+    compile 'de.idnow.android.eid:idnow-android-eid-sdk:1.6.0'
     compile 'com.android.support:multidex:1.0.3'
 }
 
