@@ -14,7 +14,7 @@
 
     <!-- The sample app inherits from the theme included in the SDK, see styles.xml -->
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="false"
         android:label="IDnow Sample App"
         android:icon="@drawable/idnow_avatar"
