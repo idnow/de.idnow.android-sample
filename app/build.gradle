@@ -23,14 +23,14 @@ android {
         config {
         }
     }
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
     defaultConfig {
         applicationId "de.idnow"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 165
-        versionName "5.0.11"
+        versionName "5.0.12"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
         multiDexEnabled = true
     }
@@ -95,8 +95,8 @@ allprojects {
 
 dependencies {
 
-    implementation 'de.idnow.sdk:idnow-android-sdk:5.0.11'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.0.2'
+    implementation 'de.idnow.sdk:idnow-android-sdk:5.0.12'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.0.3'
     implementation "androidx.multidex:multidex:2.0.1"
 
 }
