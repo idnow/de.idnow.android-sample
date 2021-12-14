@@ -29,8 +29,8 @@ android {
         applicationId "de.idnow"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 166
-        versionName "5.1.2.2"
+        versionCode 167
+        versionName "5.1.3"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
         multiDexEnabled = true
     }
@@ -87,6 +87,7 @@ allprojects {
         maven {
             url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
         }
+
         flatDir {
             dirs 'libs' //this way we can find the .aar file in libs folder
         }
@@ -94,11 +95,9 @@ allprojects {
 }
 
 dependencies {
-
-    implementation 'de.idnow.sdk:idnow-android-sdk:5.1.2.2'
-   implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.2.1'
+    implementation 'de.idnow.sdk:idnow-android-sdk:5.1.3'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.2.1'
     implementation "androidx.multidex:multidex:2.0.1"
-
 }
 
 android {
