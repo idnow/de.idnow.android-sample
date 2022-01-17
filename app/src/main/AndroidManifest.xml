@@ -18,12 +18,13 @@
         android:allowBackup="false"
         android:label="IDnow Sample App"
         android:icon="@drawable/idnow_avatar"
-        tools:replace="android:label"
+        tools:replace="android:label,android:name"
         android:largeHeap="true"
         android:extractNativeLibs="true">
         <activity
             android:name="de.idnow.sampleproject.MainActivity"
             android:label="IDnow Sample App"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
