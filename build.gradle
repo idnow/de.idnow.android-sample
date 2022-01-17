@@ -39,8 +39,8 @@ allprojects {
                 basic(BasicAuthentication)
             }
             credentials {
-                username "idnow0919"
-                password "n8rNRW9f3J"
+                username ""
+                password ""
             }
         }
     }
