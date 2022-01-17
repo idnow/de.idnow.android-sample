@@ -2,16 +2,43 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            url "https://maven.google.com" // Google's Maven repository
+        }
+        maven {
+            url "https://raw.githubusercontent.com/idnow/de.idnow.android/master/"
+        }
+        maven {
+            url "https://raw.githubusercontent.com/idnow/de.idnow.android.sdk/master/"
+        }
+
+        maven { url "https://jitpack.io" }
+        flatDir {
+            dirs("libs")
+        }
+        maven {
+            url = uri("https://repo.authada.de/public/")
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username ""
+                password ""
+            }
+        }
     }
 }
