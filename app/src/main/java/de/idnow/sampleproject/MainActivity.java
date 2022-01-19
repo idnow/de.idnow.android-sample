@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import de.idnow.R;
+import de.idnow.core.IDnowConfig;
+import de.idnow.core.IDnowResult;
 import de.idnow.sdk.IDnowSDK;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  implements de.idnow.core.IDnowSDK.IDnowResultListener {
 
     private Context context;
 
@@ -36,7 +38,7 @@ public class MainActivity extends Activity {
                     IDnowSDK.setShowErrorSuccessScreen(true, context);
 
                     // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
-                    IDnowSDK.setTransactionToken("TST-ZTSVS", context);
+                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
 
                     IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
                 } catch (Exception e) {
@@ -67,6 +69,30 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+
+        Button startAutoIdentButton = findViewById(R.id.buttonStartAutoIdent);
+        DrawableUtils.setProceedButtonBackgroundSelector(startAutoIdentButton);
+        startAutoIdentButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    IDnowConfig iDnowConfig = IDnowConfig.Builder.getInstance()
+                            .withLanguage("en") // this line is not necessary, please see below
+                            .build();
+
+                    de.idnow.core.IDnowSDK autoIdentSDK = de.idnow.core.IDnowSDK.getInstance();
+                    autoIdentSDK.initialize(MainActivity.this, iDnowConfig);
+                    //need to be changed to your own Auto Ident token
+                    autoIdentSDK.startIdent("TST-XXXXX", MainActivity.this);
+                } catch (Exception e) {
+                    // exception handling required
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     /**
@@ -107,5 +133,10 @@ public class MainActivity extends Activity {
 
             Toast.makeText(this, toastText.toString(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onIdentResult(IDnowResult iDnowResult) {
+
     }
 }

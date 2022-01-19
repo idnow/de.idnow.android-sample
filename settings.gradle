@@ -1,5 +1,1 @@
-import java.nio.file.Paths
-
-include ':app', ':eid', ':sdk'
-project(':eid').projectDir = Paths.get("../de.idnow.android.eid").toFile()
-project(':sdk').projectDir = Paths.get("../de.idnow.sdk").toFile()
+include ':app'
