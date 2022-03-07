@@ -24,7 +24,8 @@
             android:name="de.idnow.sampleproject.MainActivity"
             android:label="IDnow Sample App"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
