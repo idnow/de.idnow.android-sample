@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primaryColor">#E91E63</color>
+    <color name="primary">@color/primaryColor</color>
+    <color name="proceed_button_background">@color/primaryColor</color>
+
+
+
+</resources>
