@@ -2,16 +2,22 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        gradlePluginPortal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath("com.android.tools.build:gradle:7.2.2")
+        classpath("com.jaredsburrows:gradle-license-plugin:0.9.0")
     }
 }
 
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
+}
+
+plugins {
+    kotlin("android") version "1.7.10" apply false
 }
