@@ -30,7 +30,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 167
-        versionName "5.1.10"
+        versionName "6.0.0"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
         multiDexEnabled = true
     }
@@ -95,8 +95,8 @@ allprojects {
 }
 
 dependencies {
-    implementation 'de.idnow.sdk:idnow-android-sdk:5.3.0'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.5.3'
+    implementation 'de.idnow.sdk:idnow-android-sdk:6.0.0'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.5.1'
     implementation "androidx.multidex:multidex:2.0.1"
 }
 
