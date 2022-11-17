@@ -95,8 +95,8 @@ allprojects {
 }
 
 dependencies {
-    implementation 'de.idnow.sdk:idnow-android-sdk:6.0.0'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.5.1'
+    implementation 'de.idnow.sdk:idnow-android-sdk:6.1.1'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.5.3'
     implementation "androidx.multidex:multidex:2.0.1"
 }
 
