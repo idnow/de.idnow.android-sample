@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-
 import de.idnow.R;
 import de.idnow.sdk.IDnowSDK;
 
@@ -34,11 +33,12 @@ public class MainActivity extends Activity {
                     IDnowSDK.getInstance().initialize(MainActivity.this, "");
                     IDnowSDK.setShowVideoOverviewCheck(true, context);
                     IDnowSDK.setShowErrorSuccessScreen(true, context);
+                    IDnowSDK.setCertificateProvider(new MyMtlsCertificateProvider(context));
 
                     // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
-                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
+                    IDnowSDK.setTransactionToken("TST-XXXXX");
 
-                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
+                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken());
                 } catch (Exception e) {
                     // exception handling required
                     e.printStackTrace();
@@ -58,9 +58,9 @@ public class MainActivity extends Activity {
                     IDnowSDK.setShowErrorSuccessScreen(true, context);
 
                     // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
-                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
+                    IDnowSDK.setTransactionToken("TST-XXXXX");
 
-                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
+                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken());
                 } catch (Exception e) {
                     // exception handling required
                     e.printStackTrace();
