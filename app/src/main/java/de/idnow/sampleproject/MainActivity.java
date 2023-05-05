@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
                     // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
                     IDnowSDK.setTransactionToken("TST-XXXXX", context);
 
-                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
+                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken());
                 } catch (Exception e) {
                     // exception handling required
                     e.printStackTrace();
