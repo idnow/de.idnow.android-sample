@@ -45,28 +45,6 @@ public class MainActivity extends Activity {
                 }
             }
         });
-
-        Button startPhotoIdentButton = findViewById(R.id.buttonStartPhotoIdent);
-        DrawableUtils.setProceedButtonBackgroundSelector(startPhotoIdentButton);
-        startPhotoIdentButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                try {
-                    IDnowSDK.getInstance().initialize(MainActivity.this, "idnow");
-                    IDnowSDK.setShowVideoOverviewCheck(true, context);
-                    IDnowSDK.setShowErrorSuccessScreen(true, context);
-
-                    // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
-                    IDnowSDK.setTransactionToken("TST-XXXXX", context);
-
-                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken(context));
-                } catch (Exception e) {
-                    // exception handling required
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     /**
