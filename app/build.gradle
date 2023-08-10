@@ -27,7 +27,7 @@ android {
     buildToolsVersion "31.0.0"
     defaultConfig {
         applicationId "de.idnow"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 34
         versionCode 167
         versionName "6.8.0-beta1"
