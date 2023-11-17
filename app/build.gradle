@@ -97,8 +97,8 @@ allprojects {
 }
 
 dependencies {
-    implementation 'de.idnow.sdk:idnow-android-sdk:7.3.0'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.7.2'
+    implementation 'de.idnow.sdk:idnow-android-sdk:7.4.0'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.7.3'
     implementation "androidx.multidex:multidex:2.0.1"
     implementation files ('libs/bcprov-jdk15to18-164.jar')
     implementation files ('libs/bctls-jdk15to18-164.jar')
