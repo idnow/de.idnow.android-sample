@@ -79,16 +79,6 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
         maven {
-            url = uri("https://repo.authada.de/public/")
-            authentication {
-                basic(BasicAuthentication)
-            }
-            credentials {
-                username ""
-                password ""
-            }
-        }
-        maven {
             url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
         }
         flatDir {
@@ -99,7 +89,6 @@ allprojects {
 
 dependencies {
     implementation 'de.idnow.sdk:idnow-android-sdk:8.4.0'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:2.11.0'
     implementation "androidx.multidex:multidex:2.0.1"
     implementation files ('libs/bcprov-jdk15to18-164.jar')
     implementation files ('libs/bctls-jdk15to18-164.jar')
