@@ -93,6 +93,12 @@ dependencies {
     implementation 'de.idnow.sdk:idnow-android-sdk:9.1.0'
     implementation 'de.idnow.android.eid:idnow-android-eid-sdk:3.0.1'
     implementation "androidx.multidex:multidex:2.0.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"){
+        force = true
+    }
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0"){
+        force = true
+    }
     implementation files ('libs/bcprov-jdk15to18-164.jar')
     implementation files ('libs/bctls-jdk15to18-164.jar')
 }
