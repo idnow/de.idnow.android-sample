@@ -18,7 +18,7 @@
 
         <!-- Enable the next line to use a custom font resource, requires the android support lib -->
         <!-- for details see https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml.html -->
-        <!--<item name="android:fontFamily">@font/roboto_thinitalic</item>-->
+       <item name="android:fontFamily">@font/roboto_thinitalic</item>
     </style>
 
 </resources>

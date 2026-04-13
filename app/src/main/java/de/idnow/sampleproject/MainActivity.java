@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -11,10 +12,12 @@ import android.widget.Toast;
 
 import de.idnow.R;
 import de.idnow.sdk.IDnowSDK;
+import de.idnow.sdk.util.IDnowErrorCode;
 
 public class MainActivity extends Activity {
 
     private Context context;
+    private String TAG = "IDNowSDK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +29,20 @@ public class MainActivity extends Activity {
 
         Button startVideoIdentButton = findViewById(R.id.buttonStartVideoIdent);
         DrawableUtils.setProceedButtonBackgroundSelector(startVideoIdentButton);
-        startVideoIdentButton.setOnClickListener(new OnClickListener() {
+        startVideoIdentButton.setOnClickListener(v -> {
+            try {
+                IDnowSDK.getInstance().initialize(MainActivity.this, "");
+                IDnowSDK.setShowVideoOverviewCheck(true, context);
+                IDnowSDK.setShowErrorSuccessScreen(true, context);
+                IDnowSDK.setOverrideEntryActivity(true);
 
-            @Override
-            public void onClick(View v) {
-                try {
-                    IDnowSDK.getInstance().initialize(MainActivity.this, "");
-                    IDnowSDK.setShowVideoOverviewCheck(true, context);
-                    IDnowSDK.setShowErrorSuccessScreen(true, context);
+                // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
+                IDnowSDK.setTransactionToken("XXX-XXXX");
 
-                    // need to be changed to your own token as described in API documentation, see https://www.idnow.eu/development/api-documentation/
-                    IDnowSDK.setTransactionToken("TST-JBGXB");
-
-                    IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken());
-                } catch (Exception e) {
-                    // exception handling required
-                    e.printStackTrace();
-                }
+                IDnowSDK.getInstance().start(IDnowSDK.getTransactionToken());
+            } catch (Exception e) {
+                // exception handling required
+                Log.e(TAG, "SDK initialization failed: ", e);
             }
         });
     }
@@ -52,38 +52,35 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String resultMessage = "";
         if (requestCode == IDnowSDK.REQUEST_ID_NOW_SDK) {
-            StringBuilder toastText;
-
-            switch (resultCode) {
-
-                case IDnowSDK.RESULT_CODE_SUCCESS:
-                    toastText = new StringBuilder("Identification performed. ");
-                    if (null != data) {
-                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN));
-                    }
-                    break;
-
-                case IDnowSDK.RESULT_CODE_CANCEL:
-                    toastText = new StringBuilder("Identification canceled. ");
-                    if (null != data) {
-                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR));
-                    }
-                    break;
-
-                case IDnowSDK.RESULT_CODE_FAILED:
-                    toastText = new StringBuilder("Identification failed. ");
-                    if (null != data) {
-                        toastText.append(data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR));
-                    }
-                    break;
-
-                default:
-                    toastText = new StringBuilder("Result Code: ");
-                    toastText.append(resultCode);
+            if (resultCode == IDnowSDK.RESULT_CODE_SUCCESS) {
+                if (data != null) {
+                    String transactionToken = data.getStringExtra(IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN);
+                    resultMessage = "success, transaction token: " + transactionToken;
+                }
+            } else if (resultCode == IDnowSDK.RESULT_CODE_CANCEL) {
+                if (data != null) {
+                    String transactionToken = data.getStringExtra(IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN);
+                    IDnowErrorCode errorCode = (IDnowErrorCode) data.getSerializableExtra(IDnowSDK.RESULT_ERROR_CODE);
+                    String errorMessage = data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR);
+                    int serverCode = data.getIntExtra(IDnowSDK.RESULT_SERVER_STATUS_CODE, 0);
+                    resultMessage = "failed, transaction token: " + transactionToken + ", error: "
+                            + errorMessage + "Error code: " + errorCode.toString() + " Server status code: " + serverCode;
+                }
+            } else if (resultCode == IDnowSDK.RESULT_CODE_FAILED) {
+                if (data != null) {
+                    String transactionToken = data.getStringExtra(IDnowSDK.RESULT_DATA_TRANSACTION_TOKEN);
+                    String errorMessage = data.getStringExtra(IDnowSDK.RESULT_DATA_ERROR);
+                    resultMessage = "failed, transaction token: " + transactionToken + ", error: " + errorMessage;
+                }
+            } else if (resultCode == IDnowSDK.RESULT_USER_IN_QUEUE) {
+               resultMessage = "User enrolled into the waiting list and will be notified via SMS ";
+            } else {
+                resultMessage = "Result Code: " + resultCode;
             }
-
-            Toast.makeText(this, toastText.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, resultMessage, Toast.LENGTH_LONG).show();
+            Log.i(TAG, resultMessage);
         }
     }
 }
