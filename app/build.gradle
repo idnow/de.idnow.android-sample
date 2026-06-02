@@ -3,78 +3,55 @@ apply plugin: "com.jaredsburrows.license"
 
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
         google()
         maven { url 'https://jitpack.io' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.6.0'
+        classpath 'com.android.tools.build:gradle:8.9.1'
         classpath "com.jaredsburrows:gradle-license-plugin:0.9.3"
     }
 }
 
-repositories {
-    jcenter()
-}
-
 android {
-    signingConfigs {
-        config {
-        }
-    }
     defaultConfig {
         applicationId "de.idnow"
-        minSdkVersion 26
-        compileSdkVersion 35
-        targetSdkVersion 35
+        minSdkVersion 28
+        compileSdkVersion 36
+        targetSdkVersion 36
         versionCode 170
-        versionName "9.1.1"
+        versionName "9.7.8"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a'
-        multiDexEnabled = true
     }
     buildTypes {
         release {
-            // don't use proguard, because there will be problems with the idnow SDK otherwise
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "boolean", "IN_DEBUG_MODE", "false"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             debuggable true
-            // don't use proguard
             minifyEnabled false
-            buildConfigField "boolean", "IN_DEBUG_MODE", "true"
         }
     }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
-}
-
-android {
-    ndkVersion '21.4.7075529'
-
-
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
         maven { url 'https://jitpack.io' }
         maven {
             url = uri("https://repo.authada.de/public/")
             authentication {
                 basic(BasicAuthentication)
             }
+            //Ask for credentials
             credentials {
                 username ""
                 password ""
@@ -83,18 +60,15 @@ allprojects {
         maven {
             url "https://raw.githubusercontent.com/idnow/de.idnow.android/master"
         }
-        flatDir {
-            dirs 'libs' //this way we can find the .aar file in libs folder
-        }
     }
 }
 
 dependencies {
-    implementation 'de.idnow.sdk:idnow-android-sdk:9.1.1'
-    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:3.0.1'
-    implementation "androidx.multidex:multidex:2.0.1"
-    implementation files ('libs/bcprov-jdk15to18-164.jar')
-    implementation files ('libs/bctls-jdk15to18-164.jar')
+    implementation 'de.idnow.sdk:idnow-android-sdk:9.7.8'
+    implementation 'de.idnow.android.eid:idnow-android-eid-sdk:3.5.4'
+    implementation ("org.bouncycastle:bcprov-jdk15to18:1.83")
+    implementation ("org.bouncycastle:bctls-jdk15to18:1.83")
+    implementation ("org.bouncycastle:bcutil-jdk15to18:1.83")
 }
 
 android {
